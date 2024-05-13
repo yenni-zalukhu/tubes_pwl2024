@@ -36,6 +36,11 @@ class AdminController extends Controller
         }
     }
 
+    public function show()
+{
+    return view('profile.show'); // Ganti dengan nama view yang sesuai
+}
+
     public function home()
     {
         $room = Room::all();

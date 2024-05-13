@@ -11,9 +11,9 @@
       </div>
       <!-- end loader -->
       <!-- header -->
-      <header>
+      
         @include('home.header')
-      </header>
+      
       <!-- end header inner -->
       <!-- end header -->
       <!-- banner -->

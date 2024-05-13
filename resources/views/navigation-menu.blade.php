@@ -80,11 +80,36 @@
 
                         <x-slot name="content">
                             <!-- Account Management -->
+                            @if (Auth::id())
+                            @php
+                                $usertype = Auth()->user()->usertype;
+                            @endphp
                             
-
+                            @if($usertype == 'admin' && request()->route()->getName() == 'admin.index')
                             <x-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
+                        @endif
+                        
+                        @endif
+                            
+                            @if (Auth::id())
+                            @php
+                                $usertype = Auth()->user()->usertype;
+                            @endphp
+                            
+                            @if($usertype == 'user')
+                                <x-dropdown-link href="{{ route('home') }}">
+                                    {{ __('Home') }}
+                                </x-dropdown-link>
+                                @elseif($usertype == 'admin' && request()->route()->getName() == 'profile.show')
+                                <x-dropdown-link href="{{ route('admin.index') }}">
+                                    {{ __('Home') }}
+                                </x-dropdown-link>
+    
+                            @endif
+                        @endif
+                        
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -98,7 +123,7 @@
                                 @csrf
 
                                 <x-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
+                                         @click.prevent="$root.submit();" onclick="return confirm('Apakah Anda Yakin Mau Log Out?')">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
