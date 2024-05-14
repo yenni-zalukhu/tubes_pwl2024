@@ -38,4 +38,18 @@ route::get('/room_details/{id}',[HomeController::class, 'room_details']);
 
 route::post('/add_booking/{id}',[HomeController::class, 'add_booking']);
 
+route::get('/bookings',[AdminController::class, 'bookings']);
+
+route::get('/delete_booking/{id}',[AdminController::class, 'delete_booking']);
+
+route::get('/approve_book/{id}',[AdminController::class, 'approve_book']);
+
+route::get('/reject_book/{id}',[AdminController::class, 'reject_book']);
+
 Route::get('/show',[AdminController::class, 'show'])->name('profile.show');
+
+route::get('/view_gallary',[AdminController::class, 'view_gallary']);
+
+route::post('/upload_gallary',[AdminController::class, 'upload_gallary']);
+
+route::get('/delete_gallary/{id}',[AdminController::class, 'delete_gallary']);
