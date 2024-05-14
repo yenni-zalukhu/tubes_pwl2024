@@ -19,42 +19,21 @@
       </div>
       <!-- end loader -->
       <!-- header -->
-      
+      <header>
         @include('home.header')
-      
+      </header>
       <!-- end header inner -->
       <!-- end header -->
       <!-- banner -->
-      @include('home.slider')
-      <!-- end banner -->
-      <!-- about -->
-      @include('home.about')
-      <!-- end about -->
+     
       <!-- our_room -->
       @include('home.room')
       <!-- end our_room -->
-      <!-- gallery -->
-      @include('home.galary')
-      <!-- end gallery -->
-      <!-- blog -->
-      
-      <!-- end blog -->
-      <!--  contact -->
-      @include('home.contact')
-      <!-- end contact -->
+     
       <!--  footer -->
       @include('home.footer')
 
-   <script type="text/javascript">
-   $<window>.scroll(function)() {
-   sessionStroge.scrollTop = $(this).scrollTop();
-   });
-
-   $(document).ready(function() {
-   if (sessionStroge.scrollTop != "undefined") {
-   $(window).scrollTop(sessionStroge.scrollTop);
-   }
-   });
+  
 
    </script>
 

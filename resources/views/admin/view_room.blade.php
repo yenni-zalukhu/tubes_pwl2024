@@ -59,7 +59,7 @@
                     <td>{{$data->wifi}}</td>
                     <td>{{$data->room_type}}</td>
                     <td>
-                        <img src="room/{{$data->image}}" width="100">
+                        <img  width="100" src="room/{{$data->image}}">
                     </td>
                     <td>
                       <a onclick="return confirm('Are You Sure Want To Delete This?')" class="btn btn-danger" href="{{url('room_delete', $data->id)}}">Delete</a>
