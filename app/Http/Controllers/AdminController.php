@@ -49,9 +49,29 @@ class AdminController extends Controller
     }
 
     public function show()
-{
-    return view('profile.show'); // Ganti dengan nama view yang sesuai
-}
+    {
+    return view('profile.show'); 
+    }
+
+    // public function about()
+    // {
+    // return view('home.about'); 
+    // }
+
+    // public function room()
+    // {
+    // return view('home.room'); 
+    // }
+
+    // public function gallery()
+    // {
+    // return view('home.gallery'); 
+    // }
+
+    // public function contact()
+    // {
+    // return view('home.contact'); 
+    // }
 
     public function home()
     {

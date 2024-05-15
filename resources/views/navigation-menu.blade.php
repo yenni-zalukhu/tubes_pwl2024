@@ -90,8 +90,19 @@
                                 {{ __('Profile') }}
                             </x-dropdown-link>
                         @endif
-                        
                         @endif
+
+                        {{-- @if (Auth::id())
+                        @php
+                            $usertype = Auth()->user()->usertype;
+                        @endphp
+                        
+                        @if($usertype == 'admin' && request()->route()->getName() == 'admin.view_room' || 'admin.create_room')
+                        <x-dropdown-link href="{{ route('profile.show') }}">
+                            {{ __('Profile') }}
+                        </x-dropdown-link>
+                    @endif
+                    @endif --}}
                             
                             @if (Auth::id())
                             @php

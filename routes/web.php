@@ -20,7 +20,15 @@ route::get('/',[AdminController::class, 'home']);
 
 route::get('/index', [AdminController::class, 'index'])->name('home');
 
-Route::get('/home', [AdminController::class, 'index'])->name('admin.index');
+route::get('/home', [AdminController::class, 'index'])->name('admin.index');
+
+// route::get('/about', [AdminController::class, 'about'])->name('about'); 
+
+// route::get('/room', [AdminController::class, 'room'])->name('room');
+
+// route::get('/gallery', [AdminController::class, 'gallery'])->name('gallery');
+
+// route::get('/contact', [AdminController::class, 'contact'])->name('contact'); 
 
 route::get('/create_room',[AdminController::class, 'create_room']);
 
