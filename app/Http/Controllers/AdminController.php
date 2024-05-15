@@ -11,7 +11,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Room;
 
 use App\Models\Booking;
+
 use App\Models\Gallary;
+
+use App\Models\Contact;
+
+use Notification;
+
+use App\Notifications\SendEmailNotification;
 
 class AdminController extends Controller
 {
@@ -24,8 +31,10 @@ class AdminController extends Controller
             if($usertype == 'user')
             {
                 $room = Room::all();
+
+                $gallary = Gallary::all();
                 
-                return view('home.index',compact('room'));
+                return view('home.index',compact('room','gallary'));
             }
 
             else if($usertype == 'admin')
@@ -47,8 +56,9 @@ class AdminController extends Controller
     public function home()
     {
         $room = Room::all();
+        $gallary = Gallary::all();
 
-        return view('home.index',compact('room'));
+        return view('home.index',compact('room','gallary'));
 
     }
 
@@ -208,4 +218,26 @@ public function delete_gallary($id)
 
     return redirect()->back();
 }
+
+public function all_messages()
+{
+
+    $data = Contact::all();
+
+    return view('admin.all_message',compact('data'));
+}
+
+public function send_mail($id)
+{
+    $data =  Contact::find($id);
+    return view('admin.send_mail',compact('data'));
+}
+
+public function mail($id)
+{
+    $data = Contact::find($id);
+
+
+}
+
 }
