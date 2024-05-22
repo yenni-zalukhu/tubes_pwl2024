@@ -27,20 +27,19 @@
              @csrf
                 <div class="row">
                    <div class="col-md-12 ">
-                      <input class="contactus" placeholder="Name" type="type" name="Name">
-                      type="type" name="name" required>
+                      <input class="contactus" placeholder="Name" type="text" name="name" required>
+                  
                    </div>
                    <div class="col-md-12">
                       <input class="contactus" placeholder="Email"
-                        type="email" name="Email" required>
+                        type="email" name="email" required>
                    </div>
                    <div class="col-md-12">
-                      <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">   
-                     type="number" name="phone" required>
+                      <input class="contactus" placeholder="Phone Number" type="number" name="phone" required>   
 
                    </div>
                    <div class="col-md-12">
-                      <textarea class="textarea" placeholder="Message" type="type" name="message" required>Message</textarea>
+                      <textarea class="textarea" placeholder="Message" name="message" required></textarea>
                    </div>
                    <div class="col-md-12">
                       <button type="submit" class="send_btn">Send</button>

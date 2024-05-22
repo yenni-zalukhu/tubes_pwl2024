@@ -11,16 +11,17 @@ class Booking extends Model
 
     protected $fillable = [
         'room_title',
+        'room_type',
         'name',
         'email',
         'phone',
         'start_date', 
-        'end_date'
+        'end_date',
     ];
 
 
     public function room()
     {
-        return $this->hasOne('App\Models\Room','id','room_id');
+        return $this->belongsTo('App\Models\Room', 'room_id', 'id');
     }
 }

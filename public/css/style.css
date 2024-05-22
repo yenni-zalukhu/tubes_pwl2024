@@ -943,6 +943,16 @@ line-height: 35px;
      margin-top: 90px;
 }
 
+@media (max-width: 768px) {
+     .nav-item {
+         padding: 10px; /* Adjust padding for smaller screens */
+     }
+     .btn {
+         width: 100%; 
+     }
+ }
+ 
+
 
 
 

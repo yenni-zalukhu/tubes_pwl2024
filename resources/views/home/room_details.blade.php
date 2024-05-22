@@ -43,6 +43,21 @@
                  </div>
               </div>
            </div>
+
+           @if(session()->has('message'))
+           <div class="alert alert-success">
+               <button type="button" class="close" data-bs-dismiss="alert">X</button>
+               {{ session()->get('message') }}
+           </div>
+       @endif
+
+       @if(session('error'))
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-bs-dismiss="alert">X</button>
+        {{ session('error') }}
+    </div>
+@endif
+
     
            
            <div class="row">
@@ -61,7 +76,7 @@
 
                       <h4> Room Type : {{$room->room_type}}</h4>
 
-                      <h3 style="padding: 12px"> price : {{$room->price}}</h3>
+                      <h3 style="padding: 12px"> Price : {{$room->price}}</h3>
 
                     </div>
                  </div>
@@ -73,7 +88,7 @@
 
                 <div>
 
-                    @if(session()->has('message'))
+                    {{-- @if(session()->has('message'))
 
                         <div class="alert alert-success">
                             
@@ -87,7 +102,7 @@
 
                 </div>
 
-                @if($errors)
+              @if($errors)
 
                     @foreach($errors->all() as $errors)
 
@@ -97,7 +112,7 @@
 
                     @endforeach
 
-                @endif
+                @endif --}}
 
                 <form action="{{url('add_booking',$room->id)}}" method="Post">
 
@@ -137,7 +152,6 @@
            </div>
         </div>
      </div>
-
 
       <!-- end header inner -->
       <!-- end header -->

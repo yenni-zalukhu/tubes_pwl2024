@@ -46,8 +46,9 @@
                             <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="dd/mm/yyyy">
                          </div>
                          <div class="col-md-12">
-                            <button class="book_btn">Book Now</button>
-                         </div>
+                           <button class="book_btn"><a href="{{ url('/our_rooms') }}">Book Now</a></button>
+                       </div>
+                       
                       </div>
                    </form>
                 </div>

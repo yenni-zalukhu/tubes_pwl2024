@@ -55,17 +55,17 @@
                 <div class="div_deg">
                     <label>Room Type</label>
                     <select name="room_type" id="room_type">
-                        <option selected value="reguler">Reguler</option>
-                        <option value="premium">Premium</option>
-                        <option value="deluxe">Deluxe</option>
+                        <option selected value="Reguler">Reguler</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Deluxe">Deluxe</option>
                     </select>
                 </div>
 
                 <div class="div_deg">
                     <label>Free Wifi</label>
                     <select name="wifi" id="wifi">
-                        <option selected value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option selected value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
 

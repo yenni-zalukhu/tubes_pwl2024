@@ -19,7 +19,7 @@
       </div>
       <!-- end loader -->
       <!-- header -->
-      <header>>
+      <header>
         @include('home.header')
       </header>
       <!-- end header inner -->

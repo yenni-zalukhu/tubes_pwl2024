@@ -82,6 +82,8 @@ class AdminController extends Controller
 
         $data->room_type = $request->room_type;
 
+        $data->available_quota = $request->available_quota;
+
         $image = $request-> image;
 
         if($image)
@@ -118,6 +120,7 @@ class AdminController extends Controller
         $data = Room::find($id);
 
         return view('admin.update_room',compact('data'));
+        
     }
 
     public function edit_room(Request $request, $id)
@@ -133,6 +136,8 @@ class AdminController extends Controller
         $data->wifi = $request->wifi;
 
         $data->room_type = $request->room_type;
+        
+        $data->available_quota = $request->available_quota; 
 
         $image = $request-> image;
 
@@ -151,6 +156,10 @@ class AdminController extends Controller
 
     }
 
+    public function terms()
+    {
+    return view ('terms');
+    }
 
 public function bookings()
 {
@@ -234,11 +243,23 @@ public function send_mail($id)
     return view('admin.send_mail',compact('data'));
 }
 
-public function mail($id)
+public function mail(Request $request, $id)
 {
     $data = Contact::find($id);
 
+    $details = [
+        'greeting' => $request->greeting,
+        'body' => $request->body,
+        'action_text' => $request->action_text,
+        'action_url' => $request->action_url,
+        'endline' => $request->endline,
+    ];
+
+    Notification::send($data, new SendEmailNotification($details));
+
+    return redirect()->back();
+}
+
 
 }
 
-}

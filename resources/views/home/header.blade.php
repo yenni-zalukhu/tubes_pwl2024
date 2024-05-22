@@ -22,15 +22,17 @@
                                <li class="nav-item active">
                                    <a class="nav-link" href="{{url('/')}}">Home</a>
                                </li>
-                             
                                <li class="nav-item">
-                                   <a class="nav-link" href="{{url('our_rooms')">Our room</a>
+                                <a class="nav-link" href="{{url('about_us')}}">About</a>
+                             </li>                         
+                               <li class="nav-item">
+                                   <a class="nav-link" href="{{url('our_rooms')}}">Our room</a>
                                </li>
                                <li class="nav-item">
-                                   <a class="nav-link" href="{{url('hotel_gallary'}}">Gallery</a>
+                                   <a class="nav-link" href="{{url('hotel_gallary')}}">Gallery</a>
                                </li>
                                <li class="nav-item">
-                                   <a class="nav-link" href="{{url('contact_us'}}">Contact Us</a>
+                                   <a class="nav-link" href="{{url('contact_us')}}">Contact Us</a>
                                </li>
                            </ul>
                            <!-- Kode PHP -->
@@ -41,12 +43,22 @@
                                           <a href="{{ route('profile.show') }}" class="nav-item btn btn-success">Update Profile</a>
                                       </li>
                                       
-                                       <li class="nav-item">
-                                           <form method="POST" action="{{ route('logout') }}">
-                                               @csrf
-                                               <a href="{{ route('logout') }}" class="nav-item btn btn-danger" onclick="event.preventDefault(); this.closest('form').submit(); return confirm('Apakah Anda Yakin Ingin Log Out?')">Logout</a>
-                                           </form>
-                                       </li>
+                                      <li class="nav-item">
+                                        <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <a href="{{ route('logout') }}" class="nav-item btn btn-danger" onclick="logout(event)">Logout</a>
+                                        </form>
+                                    </li>
+                                    
+                                    <script>
+                                        function logout(event) {
+                                            event.preventDefault();
+                                            if (confirm('Apakah Anda Yakin Ingin Log Out?')) {
+                                                document.getElementById('logoutForm').submit();
+                                            }
+                                        }
+                                    </script>
+                                    
                                    @else
                                    <li class="nav-item" style="padding-right: 15px;">
                                        <a class="btn btn-success" href="{{url('login')}}">Login</a>

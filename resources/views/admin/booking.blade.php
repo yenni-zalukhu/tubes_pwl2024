@@ -4,29 +4,28 @@
     @include('admin.css')
 
 
-    <style type="text/css">.table_deg {
-        border:  2px solid white;
-        margin: auto;
-        width: 150%;
-        text-align: center;
-        margin-top: 40px;
+    <style type="text/css">
+    .table_deg {
+    border: 2px solid white;
+    margin: 20px auto; /* Mengubah margin top menjadi 20px */
+    width: 100%; /* Mengatur lebar tabel agar responsif */
+    text-align: center;
     }
 
-    .th_deg
-    {
-        background-color: rgb(148, 218, 238);
-        padding: 2px;
+  .th_deg {
+    background-color: rgb(148, 218, 238);
+    padding: 12px;
     }
 
-    tr
-    {
-        border: 3px solid whitesmoke;
+    tr {
+    border: 3px solid whitesmoke;
     }
 
-    td
-    {
-        padding: 10px;
+    td {
+    padding: 5px;
     }
+
+
     </style>
     
   </head>
@@ -35,14 +34,12 @@
       <!-- Sidebar Navigation -->
       @include('admin.sidebar')
       <!-- Sidebar Navigation end-->
+
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
 
-            <div class="page-content">
-                <div class="page-header">
-                  <div class="container-fluid">
-        
+      
                     <table class="table_deg">
                         <tr>
                             <th class = "th_deg">Room_id</th>
@@ -64,7 +61,7 @@
                             <td>{{$data->room_id}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->email}}</td>
-                            <td>{{$data->Phone}}</td>
+                            <td>{{$data->phone}}</td>
                             <td>{{$data->start_date}}</td>
                             <td>{{$data->end_date}}</td>
                             <td>
@@ -91,10 +88,10 @@
                             <td>{{$data->room->room_title}}</td>
                             <td>{{$data->room->price}}</td>
                             <td>
-                                <img style="width: 200!important"  src="/room/{{$data->room->image}}">
+                                <img style= "width:200 important"  src="/room/{{$data->room->image}}">
                             </td>
                             <td>
-                                <a onclick="return confirm('apakah anda yakin ingin menghapus ini?');" class= "btn btn-danger" href="{{url('delete_booking',$data->id)}}">Delete</a>
+                                <a onclick="confirmation (event)" class= "btn btn-danger" href="{{url('delete_booking',$data->id)}}">Delete</a>
                             </td>
                             <td>
                               <span style ="padding-bottom: 10px;">
@@ -115,5 +112,34 @@
     </div>
 
       @include('admin.footer')
+      {{-- Javascript Sweet Alert --}}
+      <script type="text/javascript">
+
+        function confirmation(ev)
+        {
+          ev.preventDefault();
+          var urlToRedirect = ev.currentTarget.getAttribute('href');
+  
+          console.log(urlToRedirect);
+  
+          swal({
+            title: "Are You Sure To Delete This?",
+            text : "This Delete Will Be Permanent",
+            icon : "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+  
+          .then((willCancel)=>{
+            if(willCancel)
+            {
+              window.location.href = urlToRedirect;
+            }
+  
+          })
+        }
+  
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>

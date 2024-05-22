@@ -58,9 +58,9 @@
                     <label>Room Type</label>
                     <select name="room_type" id="room_type">
                         <option selected value="{{$data->room_type}}">{{$data->room_type}}</option>
-                        <option value="reguler">Reguler</option>
-                        <option value="premium">Premium</option>
-                        <option value="deluxe">Deluxe</option>
+                        <option value="Reguler">Reguler</option>
+                        <option value="Premium">Premium</option>
+                        <option value="Deluxe">Deluxe</option>
                     </select>
                 </div>
 
@@ -69,8 +69,8 @@
                     <select name="wifi" id="wifi">
 
                         <option selected value="{{$data->wifi}}">{{$data->wifi}}</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </div>
 
@@ -85,8 +85,11 @@
                 </div>
 
                 <div class="div_deg">
-                    <input class = "btn btn-warning" type="submit" value="Update Room">
+                    <input class="btn btn-warning" type="submit" value="Update Room" style="margin-right: 10px;">
+                    <a href="{{ url('/view_room') }}" class="btn btn-success">Back to View Room</a>
                 </div>
+                
+                
             </form>
         </div>
 

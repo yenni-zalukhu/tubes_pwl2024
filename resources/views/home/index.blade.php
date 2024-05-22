@@ -45,16 +45,16 @@
       <!--  footer -->
       @include('home.footer')
 
-   <script type="text/javascript">
-   $<window>.scroll(function)() {
-   sessionStroge.scrollTop = $(this).scrollTop();
-   });
-
-   $(document).ready(function() {
-   if (sessionStroge.scrollTop != "undefined") {
-   $(window).scrollTop(sessionStroge.scrollTop);
-   }
-   });
+      <script type="text/javascript">
+         $(window).scroll(function() {
+             sessionStorage.scrollTop = $(this).scrollTop();
+         });
+ 
+         $(document).ready(function() {
+             if (sessionStorage.scrollTop !== "undefined") {
+                 $(window).scrollTop(sessionStorage.scrollTop);
+             }
+         });
 
    </script>
 

@@ -130,14 +130,25 @@
 
 
                             <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}" x-data>
+                            <form id="logoutForm" method="POST" action="{{ route('logout') }}">
                                 @csrf
-
-                                <x-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();" onclick="return confirm('Apakah Anda Yakin Mau Log Out?')">
+                            
+                                <x-dropdown-link href="#" onclick="logout(event);">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
+                            
+                            <script>
+                                function logout(event) {
+                                    event.preventDefault();
+                                    if (confirm('Apakah Anda Yakin Mau Log Out?')) {
+                                        document.getElementById('logoutForm').submit();
+                                    }
+                                }
+                            </script>
+                            
+                            
+                            
                         </x-slot>
                     </x-dropdown>
                 </div>

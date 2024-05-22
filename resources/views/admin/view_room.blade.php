@@ -62,7 +62,7 @@
                         <img  width="100" src="room/{{$data->image}}">
                     </td>
                     <td>
-                      <a onclick="return confirm('Are You Sure Want To Delete This?')" class="btn btn-danger" href="{{url('room_delete', $data->id)}}">Delete</a>
+                      <a onclick="confirmation (event)" class="btn btn-danger" href="{{url('room_delete', $data->id)}}">Delete</a>
                     </td>
 
                     <td>
@@ -77,12 +77,35 @@
         </div>
     </div>
 
-
-
-
-
-
-
       @include('admin.footer')
+      {{-- Javascript Sweet Alert --}}
+      <script type="text/javascript">
+
+      function confirmation(ev)
+      {
+        ev.preventDefault();
+        var urlToRedirect = ev.currentTarget.getAttribute('href');
+
+        console.log(urlToRedirect);
+
+        swal({
+          title: "Are You Sure To Delete This?",
+          text : "This Delete Will Be Permanent",
+          icon : "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+
+        .then((willCancel)=>{
+          if(willCancel)
+          {
+            window.location.href = urlToRedirect;
+          }
+
+        })
+      }
+
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </body>
 </html>

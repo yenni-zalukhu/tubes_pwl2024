@@ -55,8 +55,7 @@ class HomeController extends Controller
 
         if($isBooked)
         {
-            return redirect()->back()->with('message','Room is already booked please try different date');
-        }
+            return redirect()->back()->with('error','Sorry, Room Is Already Booked On That Date. Please Try Different Date');        }
 
         else
         {
@@ -72,24 +71,26 @@ class HomeController extends Controller
     }
 
     public function contact(Request $request)
-
 {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'phone' => 'required|string|max:15',
+        'message' => 'required|string',
+    ]);
 
-$contact =  new Contact;
+    $contact = new Contact;
 
-$contact->name = $request->name;
+    $contact->name = $request->name;
+    $contact->email = $request->email;
+    $contact->phone = $request->phone;
+    $contact->message = $request->message;
 
-$contact->email = $request->email;
+    $contact->save();
 
-$contact->phone = $request->phone;
-
-$contact->message = $request->message;
-
-$contact->save();
-
-return redirect()->back()->with('message','Message Sent Successfully');
-
+    return redirect()->back()->with('message', 'Message Sent Successfully');
 }
+
 
 public function our_rooms()
 {
@@ -109,6 +110,12 @@ public function contact_us()
     return view('home.contact_us');
 }
 
+
+public function about_us()
+{
+    
+    return view('home.about_us');
+}
 
 
 }

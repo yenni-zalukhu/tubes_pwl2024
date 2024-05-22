@@ -40,7 +40,7 @@
 
     <h1 style= "font-size: 30px;  font-weight: bold;">Mail send to {{$data->name}}</h1>
 
-     <form action="{{url('mail',$data->id)}}" method="Post" >
+     <form action="{{url('mail', $data->id)}}" method="Post" >
 
                 @csrf
 

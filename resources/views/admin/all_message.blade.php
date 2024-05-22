@@ -61,8 +61,7 @@
                     <td>{{$data->message}}</td>
 
                  <td>
-                    <a class="btn btn-success" href="
-                    {{url('send_mail',$data->id)}}">send mail</a>
+                    <a class="btn btn-success" href="{{url('send_mail',$data->id)}}">Send Mail</a>
 
 
                  </td>   
