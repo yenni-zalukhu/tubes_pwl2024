@@ -4,7 +4,7 @@
           <div class="col-md-12">
              <div class="titlepage">
                 <h2>Our Room</h2>
-                <p>Lorem Ipsum available, but the majority have suffered </p>
+                <p>We provide rooms with 3 types </p>
              </div>
           </div>
        </div>
